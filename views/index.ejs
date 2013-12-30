@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel='stylesheet' href='/stylesheets/custom.css'/>
+    <script src="js/jquery-2.0.3.min.js"></script>
+    <script src="js/underscore-min.js"></script>
+    <script src="js/async.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script type="text/javascript">
+
+        io = io.connect()
+
+        // Emit ready event.
+        io.emit('ready')
+
+        // Listen for the talk event.
+        io.on('talk', function (data) {
+            console.log(data.message);
+        });
+
+
+
+        var hostUrl = window.location.protocol + "//" + window.location.host;
+        var sendMessage = function(){
+           console.log("SendMessage")
+
+            var roomName = $('#roomNameTxt1').val();
+            var sessionId = $('#sessionId').val();
+            var message = $('#message').val();
+            if(roomName){
+                io.emit('sendMessageToRoom',{room : roomName, message : message})
+            }
+            if(sessionId) {
+                io.emit('sendMessageToSession',{sessionId : sessionId, message : message})
+            }
+
+        };
+
+        var joinRoom = function(){
+            console.log("JoinRoom");
+            var roomName = $('#roomNameTxt2').val()
+            console.log("Room Name", roomName)
+            if(roomName){
+                io.emit('joinRoom',roomName)
+            }
+
+        }
+
+        var unjoinRoom = function(){
+            console.log("UnJoin Room");
+        }
+
+        var broadcastMessage = function(){
+            console.log("In Broadcast Message")
+        }
+
+        io.on('roomMessage', function (data) {
+            console.log("Room Message");
+            console.log(data || data.message);
+        });
+
+        io.on('message', function (data) {
+            console.log("Room Message");
+            console.log(data || data.message);
+        });
+        //sendMessageToRoom
+
+
+
+    </script>
+
+
+    <!--<script type="text/javascript">-->
+
+
+        <!--$(function(){-->
+
+            <!--$(".dropdown-menu li").click(function(){-->
+
+
+                <!--console.log($(this).text())-->
+                <!--console.log($(this).attr('value'))-->
+                <!--$(".btn:first-child").text($(this).text());-->
+                <!--//$(".btn:first-child").val($(this).text());-->
+
+            <!--});-->
+
+        <!--});-->
+
+
+    <!--</script>-->
+</head>
+<body>
+    <div id="header">Orangutan</div>
+
+    <label> Room </label> <input type="text" id='roomNameTxt1'> <br>
+    <label> Session ID </label> <input type="text" id='sessionId' style="width:30%"><br>
+    <label> Message </label> <input type="text" id='message'> <br>
+    <input type="button" onclick="sendMessage()" value="SEND">   <br>
+    <hr>
+
+    <label>Room</label> <input type="text" id='roomNameTxt2'>
+    <input type="button" value="JOIN" onclick="joinRoom()">
+    <input type="button" value="UNJOIN" onclick="unjoinRoom()">
+    <hr>
+
+    <label>Message</label><input type="text" id="broadcastMessge">
+    <input type="button" value="Broadcast" onclick="broadcastMessage()">
+</body>
+
+
+
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel='stylesheet' href='/stylesheets/custom.css'/>
+    <script src="js/jquery-2.0.3.min.js"></script>
+    <script src="js/string.min.js"></script>
+    <script src="js/underscore-min.js"></script>
+    <script src="js/async.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/socket-helpers.js"></script>
+</head>
+<body>
+<div id="header">Orangutan</div>
+
+
+
+
+
+<div class='container'>
+    <section class='console'>
+       <div class="consolediv" id="consolediv"> <span id='console'></span></div>
+
+    </section>
+    <aside class='settings'>
+        <h3>Settings</h3>
+
+        Port <select id='port'></select>
+
+        <br>
+
+        <label>Baud Rate</label>    &nbsp&nbsp
+        <select id='baudrate'>
+            <option value="115200">115200</option>
+            <option value="57600">57600</option>
+            <option value="38400">38400</option>
+            <option value="19200">19200</option>
+            <option value="9600">9600</option>
+            <option value="4800">4800</option>
+            <option value="2400">2400</option>
+            <option value="1800">1800</option>
+            <option value="1200">1200</option>
+            <option value="600">600</option>
+            <option value="300">300</option>
+            <option value="200">200</option>
+            <option value="150">150</option>
+            <option value="134">134</option>
+            <option value="110">110</option>
+            <option value="75">75</option>
+            <option value="50">50</option>
+
+        </select>
+
+        <br>
+
+        <label>Data Bits</label>    &nbsp&nbsp
+
+        <select id='databits'>
+            <option value="8">8</option>
+            <option value="7">7</option>
+            <option value="6">6</option>
+            <option value="5">5</option>
+        </select>
+
+        <br>
+
+        <label>Stop Bits</label>    &nbsp&nbsp
+
+        <select id='stopbits'>
+            <option value="1">1</option>
+            <option value="2">2</option>
+        </select>
+
+        <br>
+
+        <label>Parity</label>    &nbsp&nbsp
+
+        <select id='parity'>
+            <option value="none">none</option>
+            <option value="even">even</option>
+            <option value="mark">mark</option>
+            <option value="odd">odd</option>
+            <option value="space">space</option>
+        </select>
+
+         <br>
+
+        <label>Buffer Size</label>         &nbsp&nbsp
+        <input type="text" id='buffersize'>
+
+        <br>
+
+        <input type="checkbox" class='hexMessage'>  <label>Hex</label>    <br>
+        <input type="checkbox" class='asciiMessage'> <label>Ascii</label>
+
+        <br>
+        <br>
+        <input type="button" value="Connect" onclick="connectDevice()">
+        <input type="button" value="Disconnet" onclick="deviceDisconnect()">
+        <br>
+
+
+        <br>
+        <h3>Message</h3>
+
+        <label>Command</label><input type="text" class='cmdMsg'> <br>
+        <input type="checkbox" class='cr'/> <label>CR</label>
+        <input type="checkbox" class='lf'>  <label>LF</label>  <br>
+          <input type="button" value="Send" onclick="sendCommand()" />
+
+        <br>
+        <br>
+        <hr>
+
+    </aside>
+
+</div>
+
+
+
+
+<section class='composer'> Message Composer</section>
+
+</body>
+</html>
+

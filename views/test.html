@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        io = io.connect()
+
+        // Emit ready event.
+        io.emit('ready')
+
+        // Listen for the talk event.
+        io.on('talk', function(data) {
+            alert(data.message)
+        })
+
+    </script>
+</head>
+<body>
+         Test Page
+</body>
+</html>

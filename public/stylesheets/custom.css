@@ -1,0 +1,104 @@
+div.inline{
+    display: inline;
+    color : red;
+}
+
+#header {
+
+    padding: 10px;
+    padding-left: 50px;;
+    background-color: #269abc;
+    color: #ffffff;
+    font-weight: bolder;
+    font-size: 1.5em;
+    letter-spacing: 1px;
+    border-bottom: white solid 1px;
+    text-transform: uppercase;
+
+}
+body{
+    background-color: white;
+}
+
+/*
+.menu {
+    width: 30%;
+    background-color: #3D74C4;
+    height : 100%;
+}*/
+
+
+.test{
+    position: relative;
+    width : 100px;
+    height: 100%;
+    background-color: #3D74C4 ;
+    padding : 10px;
+}
+
+
+
+.console, .settings {
+    display: inline;
+
+}
+
+.consolediv
+{
+    position: absolute;
+    width : 80%;
+    background-color: #000000;
+    min-height: 500px;
+    max-height: 600px;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+/*#console {
+    position: absolute;
+    width : 80%;
+    background-color: #000000;
+    min-height: 600px;
+    max-height: 600px;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: visible;
+}*/
+
+.settings{
+    position: absolute;
+
+
+    margin-left: 80%;
+
+    border-left: solid #ffffff 1px;
+
+}
+
+.composer{
+    color:green;
+    top:0%;
+    left : 100%
+}
+
+.settings > h3 {
+    margin-right: 30px;
+    padding-left: 10px;
+    background-color: #269abc;
+    color: white;
+    width: 100%;
+
+}
+
+
+p {
+    color : white;
+    letter-spacing: 2px;
+}
+.spanclass
+{
+    color : white;
+    letter-spacing: 2px;
+    font-family: arial, sans-serif;
+}
+
